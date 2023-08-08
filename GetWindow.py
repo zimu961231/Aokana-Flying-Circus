@@ -17,7 +17,6 @@ def returData():
             window.activate()
             time.sleep(3)
             return x,y
-            break
         except IndexError:
             print("未找到游戏窗口")
             time.sleep(3)
