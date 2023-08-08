@@ -4,6 +4,7 @@ import HangarMenu as hm     # 调用机库识图
 import pyautogui            # 调用鼠标移动
 import keyboard             # 调用键盘按键
 import Waitting             # 调用等待界面
+import port8111             # 调用8111端口
 
 # 鼠标单击事件
 def Click():
@@ -40,7 +41,16 @@ while True:
         break
 
 # 点击开始游戏
-starGame(x,y)
+starGame(x, y)
 time.sleep(1)
 
-bollen=Waitting.waitSearch(x,y)
+bollen = Waitting.waitSearch(x, y)
+pyautogui.moveTo(x + 950, y + 710)
+Click()
+
+while True:
+    bollen = Waitting.startCancel()
+    if bollen == 1:
+        time.sleep(2)
+    else:
+        break

@@ -45,36 +45,36 @@ def waitJoin(x,y):
 
 # 正在载入游戏界面识别
 def waitLoad(x,y):
-    num = 1
-
-    while num < 4:
-        bollen = 0
-        match num:
-            case 1:
-                sx = x
-                sy = y + 64
-                ex = x + 192
-                ey = y + 256
-                imgData = "image/Loading/HelpF1.png"
-            case 2:
-                sx = x + 300
-                sy = y
-                ex = x + 900
-                ey = y + 500
-                imgData = "image/Loading/WarThunder.png"
-            case 3:
-                sx = x + 600
-                sy = y + 500
-                ex = x + 1500
-                ey = y + 1600
-                imgData = "image/Loading/Loading.png"
-        bollen = imgSearch(imgData, sx, sy, ex, ey)
+    # num = 1
+    #
+    # while num < 3:
+        # bollen = 0
+        # match num:
+        #     case 1:
+        #         sx = x
+        #         sy = y + 64
+        #         ex = x + 192
+        #         ey = y + 256
+        #         imgData = "image/Loading/HelpF1.png"
+        #     case 2:
+    sx = x + 300
+    sy = y
+    ex = x + 900
+    ey = y + 500
+    imgData = "image/Loading/WarThunder.png"
+            # case 3:
+            #     sx = x + 600
+            #     sy = y + 500
+            #     ex = x + 1500
+            #     ey = y + 1000
+            #     imgData = "image/Loading/Loading.png"
+    bollen = imgSearch(imgData, sx, sy, ex, ey)
         # 如果识别到图片则进入识别下一个特征，识别不到则退出函数
-        if bollen == 1:
-            num += 1
-        else:
-            bollen = 0
-            return bollen
+    if bollen == 1:
+        return bollen
+    else:
+        bollen = 0
+        return bollen
 
 # 开始战斗界面识别
 def startGame(x,y):
@@ -91,6 +91,21 @@ def startGame(x,y):
     else:
         bollen = 0
         return bollen
+
+# 开始战斗界面识别
+def startCancel(x,y):
+    sx = x + 500
+    sy = y + 500
+    ex = x + 950
+    ey = y + 710
+    imgData = "image/Loading/StartCancel.png"
+    bollen = imgSearch(imgData, sx, sy, ex, ey)
+    if bollen == 1:
+        return bollen
+    else:
+        bollen = 0
+        return bollen
+
 
 # 循环判断是否加入战斗
 def waitSearch(x,y):
