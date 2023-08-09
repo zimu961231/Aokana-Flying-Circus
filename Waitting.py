@@ -3,7 +3,7 @@ from python_imagesearch.imagesearch import imagesearcharea  # 引入识图函数
 
 # 识图函数
 def imgSearch(imgData,sx,sy,ex,ey):
-    pos = imagesearcharea(imgData, sx, sy, ex , ey , precision=0.7)
+    pos = imagesearcharea(imgData, sx, sy, ex, ey, precision=0.7)
     if pos[0] != -1:
         bollen = 1
         return bollen

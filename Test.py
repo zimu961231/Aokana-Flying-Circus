@@ -1,16 +1,21 @@
-import Waitting
 import time
-import GetWindow
 import Fighting
+import pygetwindow as gw    # 引入包pygetwindow使用别名gw（getWindows）
 import pyautogui
 
 
-x,y=GetWindow.returData()
+
+
+x=0
+y=0
+window = gw.getWindowsWithTitle('War Thunder')[0]   # 寻找游戏窗口
+x = window.left  # 窗口的左边界坐标
+y = window.top  # 窗口的顶部边界坐标
 while True:
-    bollen = Fighting.back(x,y)
-    if bollen == 1:
-        print("1")
-        time.sleep(1)
-        pyautogui.moveTo(x + 1000, y + 710)
-    else:
-        break
+    Fighting.ccrp1(x, y)
+    Fighting.ccrp2(x, y)
+    # 获取当前鼠标的坐标
+    # mx, my = pyautogui.position()
+    # 打印坐标
+    # print(f"当前鼠标坐标：({x}, {y})")
+    time.sleep(1)

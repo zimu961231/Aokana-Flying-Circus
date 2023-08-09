@@ -1,0 +1,13 @@
+http://localhost:8111/gamechat
+http://localhost:8111/hudmsg
+http://localhost:8111/indicators
+http://localhost:8111/map_info.json
+http://localhost:8111/map_obj.json
+http://localhost:8111/mission.json
+http://localhost:8111/state
+http://localhost:8111/map.img
+越南	下方机场高度510m，建议飞行高度700-1000
+	上方机场高度120m，建议飞行高度700-1000
+	折合计算起飞爬升至700，飞行区间700-1000
+西奈半岛需要700m以上，上方出生480
+戈兰高地允许500m，上方出生允许700m左右
