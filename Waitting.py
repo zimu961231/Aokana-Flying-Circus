@@ -1,5 +1,4 @@
 import time
-
 from python_imagesearch.imagesearch import imagesearcharea  # 引入识图函数
 
 # 识图函数
@@ -92,12 +91,12 @@ def startGame(x,y):
         bollen = 0
         return bollen
 
-# 开始战斗界面识别
+# 【取消】按钮搜索
 def startCancel(x,y):
-    sx = x + 500
+    sx = x
     sy = y + 500
-    ex = x + 950
-    ey = y + 710
+    ex = x + 600
+    ey = y + 800
     imgData = "image/Loading/StartCancel.png"
     bollen = imgSearch(imgData, sx, sy, ex, ey)
     if bollen == 1:
