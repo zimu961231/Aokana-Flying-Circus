@@ -80,7 +80,7 @@ time.sleep(1)
 bollen = Waitting.waitSearch(x, y)
 pyautogui.moveTo(x + 950, y + 710)
 Click()
-time.sleep(2)
+time.sleep(5)
 
 # 取消按钮搜索
 while True:
@@ -102,12 +102,12 @@ while True:
 #     else:
 #         break
 
-death = 0
+# death = 0
 
 while True:
     # 判断
     bollen = Fighting.back(x, y)
-    if death == 1 and bollen == 1:  # 返回机库
+    if  bollen == 1:  # 返回机库
         print("载具被摧毁")
         pyautogui.moveTo(x + 1000, y + 710)
         Click()
@@ -119,39 +119,22 @@ while True:
     while throttle < 110:
         print(f"节流阀： {throttle} 正在加力;")
         pushW()
-        time.sleep(3)
+        Vy, Hm, throttle, IAS = port8111.getState()
         num += 1
-        if num == 10:
+        if num == 5:
             break
     count = 0  # 计数器变量
-    while count < 10:
+    while True:
         Vy, Hm, throttle, IAS = port8111.getState()
         print(f"空速：{IAS} 高度：{Hm} 爬升率：{Vy} 节流阀：{throttle}")
-        # if IAS is None:
-        #     time.sleep(1)
-        #     break
-        # elif Hm is None:
-        #     time.sleep(1)
-        #     break
-        # elif Vy is None:
-        #     time.sleep(1)
-        #     break
-        # elif power is None:
-        #     time.sleep(1)
-        #     break
-        # IAS = int(IAS)
-        # Hm = int(Hm)
-        # Vy = float(Vy)
-        # power = float(power)
-        # print(f"空速： {IAS} 高度： {Hm} 爬升率： {Vy}")
 
-        if throttle == 0 and IAS == 0:    # 判断是否死亡
-            death = 1
-            print(f"节流阀： {throttle} 空速： {IAS}")
+        if throttle == 0 and IAS < 100:    # 判断是否死亡
+            # death = 1
+            print(f"节流阀： {throttle} 空速： {IAS} 可能死亡")
+            time.sleep(3)
             break
         elif IAS < 250:     # 判断是否具有起飞速度
-            print(f"空速： {IAS}")
-            print("无法起飞")
+            print(f"空速： {IAS} 无法起飞")
             break
         elif Hm < 500:      # 判断水平高度
             if Vy < 7:      # 判断爬升率
@@ -159,7 +142,7 @@ while True:
                 print("开始爬升")
             elif Vy > 10:
                 moveDwon()
-        elif 500 < Hm < 1000:   # 稳定飞行区间
+        elif 700 < Hm < 1000:   # 稳定飞行区间
             if Vy < -3:
                 moveUp()
                 print("开始爬升")
