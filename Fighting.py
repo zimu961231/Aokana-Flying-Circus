@@ -49,7 +49,7 @@ def ccrp1(x, y):
     if result is not None:
         ix, iy = result
         ix = ix + x
-        print("CCRP坐标找到，位置：", ix, iy)
+        print("CCRP坐标已发现，位置：", ix, iy)
         return ix
     else:
         return None
@@ -65,7 +65,7 @@ def ccrp2(x, y):
     if result is not None:
         ix, iy = result
         ix = ix + 400 + x
-        print("准星坐标找到，位置：", ix, iy)
+        print("准星坐标已发现，位置：", ix, iy)
         return ix
     else:
         return None

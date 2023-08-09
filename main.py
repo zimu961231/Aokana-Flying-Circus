@@ -157,7 +157,7 @@ while True:
                 print("起飞微调")
         elif Hm > 700 and flag == 0:
             flag = 1   # 标记为1 表示已经起飞过一次了
-        elif 700 < Hm < 1000:   # 稳定飞行区间
+        elif 700 < Hm < 1200:   # 稳定飞行区间
             if Vy < -5:
                 moveUp(m=0.01)
                 print("开始爬升")
@@ -167,26 +167,27 @@ while True:
             print("保持高度")
 
             # CCRP寻路区
-            flag = 2    # 准备开启CCRP
-            if flag == 2:
-                aimX = Fighting.ccrp2(x, y)
-            if aimX is not None:    # 已获得屏幕中间坐标
+            if flag == 1:
+                flag = 2    # 准备开启CCRP
+                aimX = Fighting.ccrp2(x, y)         # 获得准星坐标
+            if aimX is not None and flag == 2:    # 已获得屏幕中间坐标
                 flag = 3
                 ccrpStart()
             ccrpX = Fighting.ccrp1(x, y)
             if ccrpX is not None and aimX is not None:    # 已获得ccrp坐标
                 flag = 4
-                keyboard.press('space')     # 空格猴子
-                if (ccrpX - aimX) > 200:    # 点在右边远处
+                if (ccrpX - aimX) > 100:    # 点在右边远处
                     moveR(m=0.05)
-                elif (aimX - ccrpX) > 200:  # 点在左边远处
+                elif (aimX - ccrpX) > 100:  # 点在左边远处
                     moveL(m=0.05)
-                elif 0 < (ccrpX - aimX) < 200:  # 点在右边近处
+                elif 25 < (ccrpX - aimX) < 100:  # 点在右边近处
                     moveR(m=0.01)
-                elif 0 < (aimX - ccrpX) < 200:  # 点在左边近处
+                elif 25 < (aimX - ccrpX) < 100:  # 点在左边近处
                     moveL(m=0.01)
+            elif ccrpX is None and aimX is not None and flag == 4:
+                keyboard.press('space')     # 空格猴子
             else:
                 flag = 3
-        elif Hm > 1000 and Vy > 0:  # 开始下降
+        elif Hm > 1200 and Vy > 0:  # 开始下降
             moveDwon(m=0.05)
             print("开始下降")
