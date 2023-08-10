@@ -6,9 +6,17 @@ http://localhost:8111/map_obj.json
 http://localhost:8111/mission.json
 http://localhost:8111/state
 http://localhost:8111/map.img
-越南	下方机场高度510m，建议飞行高度700-1000
-	上方机场高度120m，建议飞行高度700-1000
-	折合计算起飞爬升至700，飞行区间700-1000
-西奈半岛需要700m以上，上方出生480
-戈兰高地允许500m，上方出生允许700m左右
-西班牙1000-1200 上方出生420
+越南		MD5: a546079510cd41d19f5a26bbbc4e738d
+Vietnam		900 - 1500
+
+西奈半岛		MD5: 24a39808b80abe5359d23ec454ffb536
+SinaiPeninsula	700 - 1200
+
+戈兰高地		MD5: 166b151d03e6ecb507b0af3ba19583cf
+GolanHeights	1200 - 1600
+
+西班牙		MD5: 4c088fd502175f94fe1cf82a58135d82
+Spain		1200 - 1600
+
+比利牛斯山	MD5: d8997861e6b8bb555064bb554719a18b
+PyreneesMountains 3500 - 4000

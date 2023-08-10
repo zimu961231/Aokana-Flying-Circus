@@ -60,6 +60,14 @@ def getThro():
 def getState():
     url = 'http://localhost:8111/state'
     Vy, Hm, IAS, throttle = getData(url, "Vy, m/s", "H, m", "IAS, km/h", "throttle 1, %")
+    if Vy is None:
+        Vy = 0
+    if Hm is None:
+        Hm = 0
+    if IAS is None:
+        IAS = 0
+    if throttle is None:
+        throttle = 0
     # str = "Vy, m/s"    # "Vy, m/s":垂直速率
     # Vy = getData(url, str)
     # str = "H, m"        # "H, m":高度
