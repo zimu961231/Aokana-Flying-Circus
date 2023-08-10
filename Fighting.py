@@ -106,3 +106,20 @@ def ccrp1(x, y):
         return ix
     else:
         return None
+
+# CCPR红线位置寻找
+def ccrp5(x, y):
+    sx = x
+    sy = y + 200
+    ex = x + 1280
+    ey = y + 600
+    pre = 0.3
+    imgData = "image/Fight/CCRP5.png"
+    result = ccrpSearch(imgData, sx, sy, ex, ey, pre)
+    if result is not None:
+        ix, iy = result
+        ix = ix + x + 4
+        print("CCRP坐标已发现，位置：", ix, iy)
+        return ix
+    else:
+        return None

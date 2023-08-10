@@ -22,6 +22,7 @@ def MD5():
 def foundMap():
     h1 = 1000
     h2 = 1500
+    press = 1
     Vietnam = 'a546079510cd41d19f5a26bbbc4e738d'
     SinaiPeninsula = '24a39808b80abe5359d23ec454ffb536'
     GolanHeights = '166b151d03e6ecb507b0af3ba19583cf'
@@ -32,27 +33,32 @@ def foundMap():
         print("地图 越南")
         h1 = 900
         h2 = 1500
-        return h1, h2
+        press = 1
+        return h1, h2, press
     elif md5 == SinaiPeninsula:
         print("地图 西奈半岛")
         h1 = 700
         h2 = 1200
-        return h1, h2
+        press = 1
+        return h1, h2, press
     elif md5 == GolanHeights:
         print("地图 戈兰高地")
         h1 = 1200
         h2 = 1600
-        return h1, h2
+        press = 1
+        return h1, h2, press
     elif md5 == Spain:
         print("地图 西班牙")
         h1 = 1200
         h2 = 1600
-        return h1, h2
+        press = 2
+        return h1, h2, press
     elif md5 == PyreneesMountains:
         print("地图 比利牛斯山脉")
         h1 = 3500
         h2 = 4000
-        return h1, h2
+        press = 1
+        return h1, h2, press
     else:
-        return h1, h2
+        return h1, h2, press
 

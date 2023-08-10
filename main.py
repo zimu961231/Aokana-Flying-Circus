@@ -24,7 +24,7 @@ def ccrpStart():
 # Esc单击事件
 def Esc():
     keyboard.press('esc')
-    time.sleep(0.1)
+    time.sleep(0.3)
     keyboard.release('esc')
 
 # 单击【加入战斗】
@@ -75,11 +75,11 @@ while True:
 
     bollen = 0
     # 机库界面循环
-    while True:
-        if flag == 1:       # 已点击开始战斗
-            break
-        elif flag == 4:
-            break
+    while flag != 1:
+        # if flag == 1:       # 已点击开始战斗
+        #     break
+        # elif flag == 4:
+        #     break
         # 将窗口坐标传入机库识图模块,获得机库识图模块返回值，值为1则成功，值为0则失败
         Bollen = hm.cooData(x, y)
         if Bollen == 0:
@@ -93,18 +93,18 @@ while True:
 
     if flag == 1:  # 已点击开始战斗
         print("已开始战斗")
-    elif flag == 4:
-        print("已开始战斗")
+    # elif flag == 4:
+    #     print("已开始战斗")
     else:
-        bollen = 0
-        while bollen == 0:
+        bollen = 1
+        while bollen == 1:
             # 点击开始游戏
             starGame(x, y)
             time.sleep(1)
             bollen = Back.imgRed(x, y)
-            if bollen == 0:
-                break
-            elif bollen == 1:  # 载具锁定
+            # if bollen == 0:
+            #     break
+            if bollen == 1:  # 载具锁定
                 print("载具被锁定")
                 pyautogui.moveTo(x + 640, y + 415)
                 Click()
@@ -138,6 +138,7 @@ while True:
 
         # 起飞事件
         num = 0
+        press = 1
         while throttle < 110 and flag == 0:    # 判断节流阀位置
             if num == 5:
                 break
@@ -146,7 +147,7 @@ while True:
             print(f"节流阀：{throttle} 正在加力;")
             pushW()
             Vy, Hm, throttle, IAS = port8111.getState()
-            h1, h2 = Map.foundMap()
+            h1, h2, press= Map.foundMap()         # 地图识别
             num += 1
 
         while True:
@@ -166,11 +167,11 @@ while True:
                     moveUp(m=0.05)
                     print("开始爬升")
                     break
-                elif 7 > Vy > 5:
+                elif 15 > Vy > 5:
                     moveUp(m=0.01)
                     print("起飞微调")
                     break
-                elif Vy > 15:
+                elif Vy > 20:
                     moveDwon(m=0.05)
                     print("起飞微调")
                     break
@@ -189,7 +190,7 @@ while True:
                     moveDwon(m=0.01)
                     print("微调下降")
                     break
-                else:
+                elif IAS > 900:
                     print("保持高度")
 
                 # CCRP寻路区
@@ -202,14 +203,21 @@ while True:
                             print("未找到准星")
                         elif aimX is not None:
                             flag = 2  # 准备开启CCRP
-                    elif aimX is not  None:
+                    elif aimX is not None:
                         flag = 2  # 准备开启CCRP
                 if aimX is not None and flag == 2:    # 已获得屏幕中间坐标
                     flag = 3
-                    ccrpStart()
+                    if press == 2:
+                        ccrpStart()
+                        time.sleep(1)
+                        ccrpStart()
+                    else:
+                        ccrpStart()
                 elif aimX is None:
                     break
-                ccrpX = Fighting.ccrp1(x, y)    # 获得ccrp坐标
+                ccrpX = Fighting.ccrp1(x, y)        # 获得ccrp坐标
+                if ccrpX is None:
+                    ccrpX = Fighting.ccrp5(x, y)    # 获得ccrp坐标
                 if ccrpX is not None and aimX is not None:    # 已获得ccrp坐标
                     flag = 4
                     keyboard.press('u')     # 空格猴子
@@ -271,19 +279,20 @@ while True:
             Click()
             time.sleep(3)
             flag = 3            # 研发
-            bollen = Back.imgBuy(x, y)
-            while bollen == 1:
+            bollen1 = Back.Buy(x, y)
+            while bollen1 == 1:
                 Esc()
                 print("关闭购买")
                 time.sleep(3)
-                bollen = Back.imgBuy(x, y)
+                bollen1 = Back.Buy(x, y)
 
-            bollen = Back.imgStart(x, y)
-            while bollen != 1:
+            bollen2 = Back.imgStart(x, y)
+            while bollen2 != 1:
                 pyautogui.moveTo(x + 1200, y + 565)
                 Click()
                 print("研发")
-                bollen = Back.imgStart(x, y)
+                time.sleep(3)
+                bollen2 = Back.imgStart(x, y)
             flag = 4            # 研发完毕，加入战斗
             break
         num += 1

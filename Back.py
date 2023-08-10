@@ -47,7 +47,7 @@ def imgBuy(x,y):
     sy = y + 300
     ex = x + 1000
     ey = y + 600
-    precision = 0.9
+    precision = 0.6
     imgData = "image/Back/Buy.png"
     bollen = imgSearch(imgData, sx, sy, ex, ey, precision)
     return bollen
@@ -71,6 +71,17 @@ def imgStart(x, y):
     imgData = "image/HangarMenu/Battle.png"
     bollen = imgSearch(imgData, sx, sy, ex, ey, precision)
     return bollen
+
+def Buy(x, y):
+    bollen1 = imgBuy(x, y)
+    bollen2 = imgWT(x, y)
+    bollen = 0
+    if bollen1 == 1 and bollen2 == 1:
+        bollen = 1
+        print("购买界面")
+        return bollen
+    else:
+        return bollen
 
 def imgFound(x, y):
     back = 0
