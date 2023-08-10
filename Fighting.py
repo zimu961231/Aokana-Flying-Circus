@@ -38,22 +38,24 @@ def ccrpSearch(imgData, sx, sy, ex, ey, pre):
     else:
         return None
 
-def ccrp1(x, y):
-    sx = x
-    sy = y + 200
-    ex = x + 1280
-    ey = y + 600
-    pre = 0.8
-    imgData = "image/Fight/CCRP1.png"
-    result = ccrpSearch(imgData, sx, sy, ex, ey, pre)
-    if result is not None:
-        ix, iy = result
-        ix = ix + x
-        print("CCRP坐标已发现，位置：", ix, iy)
-        return ix
-    else:
-        return None
+# # CCPR红线位置寻找
+# def ccrp1(x, y):
+#     sx = x
+#     sy = y + 200
+#     ex = x + 1280
+#     ey = y + 600
+#     pre = 0.8
+#     imgData = "image/Fight/CCRP1.png"
+#     result = ccrpSearch(imgData, sx, sy, ex, ey, pre)
+#     if result is not None:
+#         ix, iy = result
+#         ix = ix + x
+#         print("CCRP坐标已发现，位置：", ix, iy)
+#         return ix
+#     else:
+#         return None
 
+# 准星位置寻找
 def ccrp2(x, y):
     sx = x + 400
     sy = y + 200
@@ -64,8 +66,25 @@ def ccrp2(x, y):
     result = ccrpSearch(imgData, sx, sy, ex, ey, pre)
     if result is not None:
         ix, iy = result
-        ix = ix + 400 + x
+        ix = ix + 422 + x
         print("准星坐标已发现，位置：", ix, iy)
+        return ix
+    else:
+        return None
+
+# CCPR红线位置寻找
+def ccrp1(x, y):
+    sx = x
+    sy = y + 200
+    ex = x + 1280
+    ey = y + 600
+    pre = 0.7
+    imgData = "image/Fight/CCRP3.png"
+    result = ccrpSearch(imgData, sx, sy, ex, ey, pre)
+    if result is not None:
+        ix, iy = result
+        ix = ix + x + 4
+        print("CCRP坐标已发现，位置：", ix, iy)
         return ix
     else:
         return None

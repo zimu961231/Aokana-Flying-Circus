@@ -113,6 +113,7 @@ while True:
 #   战斗界面循环
 flag = 0    # 设立判断
 x, y = Fighting.getWin()    # 重新获得游戏窗口坐标
+throttle = 0
 while True:
     # 判断是否存活
     bollen = Fighting.back(x, y)
@@ -123,7 +124,6 @@ while True:
         Click()
         break
 
-    throttle = 0
     # 起飞事件
     num = 0
     while throttle < 110:    # 判断节流阀位置
@@ -149,22 +149,35 @@ while True:
             print(f"空速：{IAS} 无法起飞")
             break
         elif Hm < 700:      # 判断水平高度
-            if Vy < 7:      # 判断爬升率
+            if Vy < 5:      # 判断爬升率
                 moveUp(m=0.05)
                 print("开始爬升")
-            elif Vy > 10:
-                moveDwon(m=0.01)
+                break
+            elif 7 > Vy > 5:
+                moveUp(m=0.01)
                 print("起飞微调")
+                break
+            elif Vy > 15:
+                moveDwon(m=0.05)
+                print("起飞微调")
+                break
         elif Hm > 700 and flag == 0:
             flag = 1   # 标记为1 表示已经起飞过一次了
         elif 700 < Hm < 1200:   # 稳定飞行区间
             if Vy < -5:
                 moveUp(m=0.01)
                 print("开始爬升")
-            elif Vy > 5:
+                break
+            elif Vy > 10:
+                moveDwon(m=0.05)
+                print("开始下降")
+                break
+            elif 10 > Vy > 5:
                 moveDwon(m=0.01)
                 print("微调下降")
-            print("保持高度")
+                break
+            else:
+                print("保持高度")
 
             # CCRP寻路区
             if flag == 1:
@@ -173,19 +186,29 @@ while True:
             if aimX is not None and flag == 2:    # 已获得屏幕中间坐标
                 flag = 3
                 ccrpStart()
-            ccrpX = Fighting.ccrp1(x, y)
+            elif aimX is None:
+                break
+            ccrpX = Fighting.ccrp1(x, y)    # 获得ccrp坐标
             if ccrpX is not None and aimX is not None:    # 已获得ccrp坐标
                 flag = 4
-                if (ccrpX - aimX) > 100:    # 点在右边远处
-                    moveR(m=0.05)
-                elif (aimX - ccrpX) > 100:  # 点在左边远处
-                    moveL(m=0.05)
-                elif 25 < (ccrpX - aimX) < 100:  # 点在右边近处
-                    moveR(m=0.01)
-                elif 25 < (aimX - ccrpX) < 100:  # 点在左边近处
-                    moveL(m=0.01)
-            elif ccrpX is None and aimX is not None and flag == 4:
-                keyboard.press('space')     # 空格猴子
+                keyboard.press('u')     # 空格猴子
+                while ccrpX is not None:
+                    if (ccrpX - aimX) > 50:    # 点在右边远处
+                        moveR(m=0.05)
+                        time.sleep(1)
+                    elif (aimX - ccrpX) > 50:  # 点在左边远处
+                        moveL(m=0.05)
+                        time.sleep(1)
+                    elif 2 < (ccrpX - aimX) < 50:  # 点在右边近处
+                        moveR(m=0.01)
+                        time.sleep(1)
+                    elif 2 < (aimX - ccrpX) < 50:  # 点在左边近处
+                        moveL(m=0.01)
+                        time.sleep(1)
+                    ccrpX = Fighting.ccrp1(x, y)
+                if ccrpX is None:
+                    time.sleep(10)
+                    keyboard.release('u')
             else:
                 flag = 3
         elif Hm > 1200 and Vy > 0:  # 开始下降
