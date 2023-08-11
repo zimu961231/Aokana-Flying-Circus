@@ -1,6 +1,10 @@
 import time
 import pygetwindow as gw    # 引入包pygetwindow使用别名gw（getWindows）
 
+print("请以管理员身份运行")
+time.sleep(1)
+print("本软件完全开源免费，如果您在其他商家处购买到本产品，请主动联系购买平台进行退款")
+time.sleep(1)
 print("启动完毕，正在寻找游戏……")
 
 x = 0

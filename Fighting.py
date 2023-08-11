@@ -113,7 +113,7 @@ def ccrp5(x, y):
     sy = y + 200
     ex = x + 1280
     ey = y + 600
-    pre = 0.3
+    pre = 0.1
     imgData = "image/Fight/CCRP5.png"
     result = ccrpSearch(imgData, sx, sy, ex, ey, pre)
     if result is not None:

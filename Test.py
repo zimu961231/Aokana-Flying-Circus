@@ -22,6 +22,7 @@ try:
 except IndexError:
     print("未找到游戏窗口")
     time.sleep(2)
-pyautogui.moveTo(x + 1200, y + 565)
+bollen = Back.imgWT(x, y)
+print(bollen)
 # flag = Back.imgFound(x, y)
 # print(flag)

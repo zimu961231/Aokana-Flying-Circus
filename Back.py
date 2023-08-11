@@ -1,5 +1,4 @@
 import time
-
 from python_imagesearch.imagesearch import imagesearcharea  # 引入识图函数
 import Fighting
 

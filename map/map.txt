@@ -20,3 +20,6 @@ Spain		1200 - 1600
 
 比利牛斯山	MD5: d8997861e6b8bb555064bb554719a18b
 PyreneesMountains 3500 - 4000
+
+大都会		MD5: ed9014e03f959769e15f31bc263838a5
+BigCity		1600 - 2000

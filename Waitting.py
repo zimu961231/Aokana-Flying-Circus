@@ -1,6 +1,5 @@
 import time
 from python_imagesearch.imagesearch import imagesearcharea  # 引入识图函数
-import Back
 
 # 识图函数
 def imgSearch(imgData,sx,sy,ex,ey):

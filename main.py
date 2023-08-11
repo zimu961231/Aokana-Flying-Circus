@@ -222,10 +222,16 @@ while True:
                     flag = 4
                     keyboard.press('u')     # 空格猴子
                     while ccrpX is not None:
-                        if (ccrpX - aimX) > 50:    # 点在右边远处
+                        if (ccrpX - aimX) > 200:    # 点在右边远处
+                            moveR(m=0.1)
+                            time.sleep(1)
+                        elif (aimX - ccrpX) > 200:  # 点在左边远处
+                            moveL(m=0.1)
+                            time.sleep(1)
+                        elif 200 > (ccrpX - aimX) > 50:    # 点在右边远处
                             moveR(m=0.05)
                             time.sleep(1)
-                        elif (aimX - ccrpX) > 50:  # 点在左边远处
+                        elif 200 > (aimX - ccrpX) > 50:  # 点在左边远处
                             moveL(m=0.05)
                             time.sleep(1)
                         elif 2 < (ccrpX - aimX) < 50:  # 点在右边近处
@@ -238,8 +244,8 @@ while True:
                     if ccrpX is None:
                         time.sleep(10)
                         keyboard.release('u')
-                        h1 = 4500
-                        h2 = 5500
+                        h1 = h1 + 3000
+                        h2 = h2 + 3000
                 else:
                     flag = 3
             elif Hm > h2 and Vy > 0:  # 开始下降
@@ -256,12 +262,12 @@ while True:
             pyautogui.moveTo(x + 1000, y + 710)
             Click()
             print("返回基地")
-            time.sleep(5)
+            time.sleep(10)
         elif back == 2:     # 加入战斗
             pyautogui.moveTo(x + 640, y + 650)
             Click()
             print("重新加入战斗")
-            time.sleep(1)
+            time.sleep(3)
             flag = 1        # 已点击加入战斗
             bollen = Back.imgRed(x, y)
             if bollen == 1:     # 载具锁定
@@ -279,20 +285,22 @@ while True:
             Click()
             time.sleep(3)
             flag = 3            # 研发
-            bollen1 = Back.Buy(x, y)
+            bollen1 = Back.imgWT(x, y)
             while bollen1 == 1:
                 Esc()
                 print("关闭购买")
                 time.sleep(3)
-                bollen1 = Back.Buy(x, y)
-
-            bollen2 = Back.imgStart(x, y)
-            while bollen2 != 1:
-                pyautogui.moveTo(x + 1200, y + 565)
-                Click()
-                print("研发")
-                time.sleep(3)
-                bollen2 = Back.imgStart(x, y)
+                bollen1 = Back.imgWT(x, y)
+            Esc()
+            print("关闭购买")
+            time.sleep(3)
+            # bollen2 = Back.imgStart(x, y)
+            # while bollen2 != 1:
+            #     pyautogui.moveTo(x + 1200, y + 565)
+            #     Click()
+            #     print("研发")
+            #     time.sleep(3)
+            #     bollen2 = Back.imgStart(x, y)
             flag = 4            # 研发完毕，加入战斗
             break
         num += 1
