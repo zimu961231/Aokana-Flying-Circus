@@ -28,6 +28,7 @@ def foundMap():
     GolanHeights = '166b151d03e6ecb507b0af3ba19583cf'
     Spain = '4c088fd502175f94fe1cf82a58135d82'
     PyreneesMountains = 'd8997861e6b8bb555064bb554719a18b'
+    BigCity = 'ed9014e03f959769e15f31bc263838a5'
     md5 = MD5()
     if md5 == Vietnam:
         print("地图 越南")
@@ -49,15 +50,21 @@ def foundMap():
         return h1, h2, press
     elif md5 == Spain:
         print("地图 西班牙")
-        h1 = 1200
-        h2 = 1600
+        h1 = 1600
+        h2 = 2000
         press = 2
         return h1, h2, press
     elif md5 == PyreneesMountains:
         print("地图 比利牛斯山脉")
-        h1 = 3500
-        h2 = 4000
+        h1 = 4500
+        h2 = 5000
         press = 1
+        return h1, h2, press
+    elif md5 == BigCity:
+        print("地图 大都会")
+        h1 = 1000
+        h2 = 1500
+        press = 2
         return h1, h2, press
     else:
         return h1, h2, press

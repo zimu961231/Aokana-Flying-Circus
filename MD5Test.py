@@ -30,6 +30,6 @@ def calculate_md5(file_path):
     return md5_hash.hexdigest()
 
 # 示例用法
-file_path = 'map/PyreneesMountains.img'
+file_path = 'map/BigCity.img'
 md5_value = calculate_md5(file_path)
 print("MD5:", md5_value)
