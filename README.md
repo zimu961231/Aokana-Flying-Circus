@@ -38,12 +38,12 @@ Q:你原神多少级了？
 A:好吧其实我根本不玩
 
 Q:如果别人拿你的项目去卖钱怎么办？  
-T:In the event that someone appropriates your project for commercial purposes, what course of action should be taken?
+T:In the event that someone appropriates your project for commercial purposes, what course of action should be taken?  
 A:信息差被骗钱很正常，例如AI绘画包天天都有人买。  
 如果你不喜欢看到无良商家赚这种钱，那么你可以为我的项目点一颗星星，并且为我的b站视频一键三连来宣传这个项目，让更多的人知道这个免费开源脚本（笑）  
 T:It is not uncommon for misinformation to lead to financial deception, as seen in cases where AI painting packages are frequently sold.  
 If you disapprove of unscrupulous merchants profiting from such practices, you have the option to support my project by giving it a favorable rating and promoting it through engaging with my Bilibili video, thereby increasing awareness of this free and open-source script. A simple action that could make a substantial difference (laughs).  
-视频地址
+[Bilibili视频](https://www.bilibili.com/video/BV1tm4y1p7f8/?vd_source=0dc7a1e616307a9f5fb9d8ed396f1e81)
 
 Q:这个项目还存在哪些问题，没有实现哪些功能？  
 A:好多好多，我只能实现简单的一架飞机反复挂机，以及自动研发。并且我还在测试，不清楚有哪些BUG。  
@@ -81,3 +81,5 @@ A:你先别急，下面会详细介绍
 ![按键设置](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/09.png)
 ### 配置文件我放在主目录下了，文件叫 WTsetting.blk
 
+Q:每次都改设置好麻烦啊？  
+A:你听说过虚拟机吗？
