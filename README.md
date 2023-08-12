@@ -51,7 +51,7 @@ A:好多好多，我只能实现简单的一架飞机反复挂机，以及自动
 在黄昏图可能会出现识别不出的情况，我已经尽可能的去努力了。  
 地图目前就适配了几张，你们可以在map文件夹里找到适配的地图，但是够用了。  
 #### 注意！脚本只适用于CCPR投弹，你可以在内构预览中将鼠标放到飞行员上，如果显示"连续炸弹投放点"，那么这架飞机是支持的。
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/10.png)  
+![內构预览](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/10.png)  
 #### 注意！即使满足以上条件，我仍然没有对亚音速飞机进行适配，因为我懒。（亚音速飞机搬炸弹除了初代喷气房里的那几个，其他抢得到战区？
 
 Q:使用这个会被封号吗？  
@@ -66,18 +66,18 @@ A:你先别急，下面会详细介绍
 
 ### 请务必完成以下图片中的设置
 
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/00.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/01.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/02.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/03.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/04.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/05.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/06.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/07.png)
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/08.png)
+![窗口画面设置](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/00.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/01.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/02.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/03.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/04.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/05.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/06.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/07.png)
+![Example Image](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/08.png)
 
 ### 请务必使用我上传的按键设置并进行导入
 
-(https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/09.png)
+![按键设置](https://github.com/GlaringMarvel/Aokana-Flying-Circus/blob/master/Setting/09.png)
 ### 配置文件我放在主目录下了，文件叫 WTsetting.blk
 
